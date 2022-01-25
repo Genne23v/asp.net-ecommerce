@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using HPlus_App.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace HPlus_App
@@ -7,7 +8,9 @@ namespace HPlus_App
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            //filters.Add(new HandleErrorAttribute());
+            filters.Add(new CustomExceptionHandler());
+            filters.Add(new LogRequestFilter());
         }
     }
 }
