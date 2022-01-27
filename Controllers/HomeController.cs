@@ -12,6 +12,7 @@ namespace HPlus_App.Controllers
     {
         public ActionResult Index()
         {
+            Console.WriteLine("Home index page");
             return View();
         }
 

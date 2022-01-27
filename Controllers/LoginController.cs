@@ -1,5 +1,4 @@
-﻿using HPlus_App.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,12 +16,18 @@ namespace HPlus_App.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Login request)
+        public ActionResult Index(Models.Login request)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(request);
+            }
+
             if (!string.IsNullOrEmpty(request.Username) && !string.IsNullOrEmpty(request.Password))
             {
                 FormsAuthentication.SetAuthCookie(request.Username, false);
-                return Redirect(FormsAuthentication.GetRedirectUrl(request.Username, false));
+                string path = FormsAuthentication.GetRedirectUrl(request.Username, false);
+                return Redirect(path);
             }
             ViewBag.Failed = true;
             return View(request);

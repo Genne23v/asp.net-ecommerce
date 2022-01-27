@@ -1,6 +1,5 @@
 ﻿@model HPlus_App.Models.Login
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,15 +9,17 @@
     {
         if (IsPost)
         {
-            <div class="alert alert-danger">Invalid login attempt</div>
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
         }
         <h2 class="form-signin-heading">Please sign in</h2>
         @*<label for="username" class="sr-only">Email address</label>*@
         @Html.LabelFor(m => m.Username, "Email address", new { @class = "control-label" })
         @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Email address", autofocus = "" })
         @*<input id="username" name="username" class="form-control" placeholder="Email address" autofocus="" value='@(Model?.Username ?? "")'>*@
+        @Html.ValidationMessageFor(m => m.Username)
         <label for="password" class="conrol-label">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+        @Html.ValidationMessageFor(m => m.Password)
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me">Remember me>
