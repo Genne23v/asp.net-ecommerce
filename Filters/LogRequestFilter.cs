@@ -19,7 +19,10 @@ namespace HPlus_App.Filters
                 IP = filterContext.HttpContext.Request.UserHostAddress,
                 DateTime = filterContext.HttpContext.Timestamp
             };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
             Debug.WriteLine(JsonConvert.SerializeObject(log));
         }
     }

@@ -1,7 +1,11 @@
 using HPlus.Ecommerce.Data.Entities;
 using System.Data.Entity;
 
+<<<<<<< HEAD
 namespace HPlus.Ecommerce.Data
+=======
+namespace HPlus_App.Data
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
 {
     public partial class HPlusSportDbContext : DbContext
     {

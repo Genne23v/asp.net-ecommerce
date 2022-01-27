@@ -1,16 +1,31 @@
+<<<<<<< HEAD
 ﻿@model HPlus_App.Models.Login
+=======
+﻿@model HPlus.Ecommerce.Models.Login
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
+<<<<<<< HEAD
     @*<form action="@Request.Url.PathAndQuery" method="post" class="form-signin">*@
     @using (Html.BeginForm("Index", "Login", new { RetrunUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { @class = "form-signin" }))
+=======
+    @using (Html.BeginForm(
+        "Index",
+        "Login",
+        new { ReturnUrl = Request.QueryString["ReturnUrl"] },
+        FormMethod.Post,
+        new { @class = "form-signin" }
+    ))
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
     {
         if (IsPost)
         {
             <div class="alert alert-danger">@Html.ValidationSummary()</div>
         }
+<<<<<<< HEAD
         <h2 class="form-signin-heading">Please sign in</h2>
         @*<label for="username" class="sr-only">Email address</label>*@
         @Html.LabelFor(m => m.Username, "Email address", new { @class = "control-label" })
@@ -28,5 +43,24 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     }
     @*</form>*@
+=======
+
+    <h2 class="form-signin-heading">Please sign in</h2>
+    @Html.LabelFor(m => m.Username, "Email address", new { @class = "control-label" })
+    @*<input type="email" name="email" class="form-control" placeholder="Email Address"/>*@
+    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Email Address", autofocus = "" })
+    @Html.ValidationMessageFor(m => m.Username)
+    <label for="password" class="control-label">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+    @Html.ValidationMessageFor(m => m.Password)
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me">Remember me>
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    }
+
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
 </div>
 

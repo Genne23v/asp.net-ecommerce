@@ -17,12 +17,23 @@
         @RenderBody()
         <hr />
         <footer>
+<<<<<<< HEAD
             <p>@Html.Copyright() | <a href="https://twitter.com/hplussport" target="_blank">@@HPlusSport</a></p>
         </footer>
     </div>
+=======
+            <!--<p>&copy; H+ Sport @DateTime.Now.Year</p>-->
+            <p>
+                @Html.Copyright() |
+            <a href="https://twitter.com/hplussport" target="_blank">@@HPlusSport</a>
+        </p>
+    </footer>
+</div>
+>>>>>>> 6976662a5ab6e3db8a0d4789396607527501b474
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+@RenderSection("scripts", required: false)
 </body>
 </html>
