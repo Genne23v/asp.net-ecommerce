@@ -7,26 +7,22 @@ using System.Web.Mvc;
 
 namespace HPlus_App.Controllers
 {
-    [CrawlerFilter]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            Console.WriteLine("Home index page");
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
