@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using HPlus.Ecommerce.Models;
 
 namespace HPlus_App.Controllers
 {
@@ -16,14 +17,20 @@ namespace HPlus_App.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string username, string password)
+        public ActionResult Index(Login request)
         {
-            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            if (!ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(username, false);
-                return Redirect(FormsAuthentication.GetRedirectUrl(username, false));
+                return View(request);
             }
-            return View();
+
+            if (!string.IsNullOrEmpty(request.Username) && !string.IsNullOrEmpty(request.Password))
+            {
+                FormsAuthentication.SetAuthCookie(request.Username, false);
+                return Redirect(FormsAuthentication.GetRedirectUrl(request.Username, false));
+            }
+            ViewBag.Failed = true;
+            return View(request);
         }
     }
 }
